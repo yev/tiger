@@ -1,0 +1,25 @@
+2012/11/10 11:17:09 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`tiger`.`client`, CONSTRAINT `fk_Client_Billing_Account` FOREIGN KEY (`Billing_Account_Id`) REFERENCES `Billing_Account` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `Client` (`first_name`, `last_name`, `email`, `last_connection_date`, `creataion_date`, `Billing_Account_Id`, `Tarif_ID`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in /Users/yev/Sites/tiger/protected/controllers/ClientController.php (76)
+in /Users/yev/Sites/tiger/index.php (13)
+2012/11/10 11:17:09 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`tiger`.`client`, CONSTRAINT `fk_Client_Billing_Account` FOREIGN KEY (`Billing_Account_Id`) REFERENCES `Billing_Account` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `Client` (`first_name`, `last_name`, `email`, `last_connection_date`, `creataion_date`, `Billing_Account_Id`, `Tarif_ID`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in /Users/yev/programs/yii/framework/db/CDbCommand.php:354
+Stack trace:
+#0 /Users/yev/programs/yii/framework/db/ar/CActiveRecord.php(1017): CDbCommand->execute()
+#1 /Users/yev/programs/yii/framework/db/ar/CActiveRecord.php(796): CActiveRecord->insert(NULL)
+#2 /Users/yev/Sites/tiger/protected/controllers/ClientController.php(76): CActiveRecord->save()
+#3 /Users/yev/programs/yii/framework/web/actions/CInlineAction.php(50): ClientController->actionCreate()
+#4 /Users/yev/programs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /Users/yev/programs/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 /Users/yev/programs/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /Users/yev/programs/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 /Users/yev/programs/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/yev/programs/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/yev/programs/yii/framework/web/CController.php(292): CFilterChain->run()
+#11 /Users/yev/programs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/yev/programs/yii/framework/web/CWebApplication.php(283): CController->run('create')
+#13 /Users/yev/programs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('client/create')
+#14 /Users/yev/programs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /Users/yev/Sites/tiger/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/~yev/tiger/index.php?r=client/create
+HTTP_REFERER=http://localhost/~yev/tiger/index.php?r=client/create
+---
